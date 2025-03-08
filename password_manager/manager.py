@@ -37,7 +37,7 @@ def check_password_strength(password):
     else:
         feedback.append(" ❌ Password is too short. It should be **at least 8 characters long**.")
 
-    if re.search(r'[A-Z]', password and re.search(r'[a-z]', password)):
+    if re.search(r'[A-Z]', password) and re.search(r'[a-z]', password):
         score += 1
     else:
         feedback.append(" ❌ Password should contain **at least one uppercase letter and one lowercase letter**.")
@@ -62,7 +62,7 @@ def check_password_strength(password):
 
     #feedback
     if feedback:
-        with st.expander("🔍**Password suggestions:**"):
+        with st.expander("🔍**Password hints:**"):
             for suggestion in feedback:
                 st.write(suggestion)
 
